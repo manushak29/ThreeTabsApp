@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Entertainment</string>
+    <string name="get_photo">Get Photo</string>
+    <string name="download">Download</string>
+</resources>
