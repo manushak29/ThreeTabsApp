@@ -20,8 +20,8 @@ import java.util.List;
  * Created by Anna on 21/04/2016.
  */
 public class BooksFragment extends Fragment {
-    private BookListAdapter adapter;
-    private List<BookListItem> bookList;
+    private BookListAdapter mAdapter;
+    private List<BookListItem> mBbookList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,20 +33,20 @@ public class BooksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.books_fragment, container, false);
         setStaticData();
-        adapter = new BookListAdapter(getActivity(), bookList);
+        mAdapter = new BookListAdapter(getActivity(), mBbookList);
         ListView listview = (ListView) rootView.findViewById(R.id.book_list);
-        listview.setAdapter(adapter);
+        listview.setAdapter(mAdapter);
         return rootView;
     }
 
 
-    public void setStaticData(){
-        bookList = new ArrayList<>();
-        bookList.add(new BookListItem(R.drawable.book1, "Comfort Zone", "Lindsay Tanner"));
-        bookList.add(new BookListItem(R.drawable.book2, "Iris and the Tiger", "Leanne Hall"));
-        bookList.add(new BookListItem(R.drawable.book3, "Spirits of the Ghan", "Judy Nunn"));
-        bookList.add(new BookListItem(R.drawable.book4, "The River House", "Janita Cunnington"));
-        bookList.add(new BookListItem(R.drawable.book5, "The Grass is Greener", "Loretta Hill"));
+    public void setStaticData() {
+        mBbookList = new ArrayList<>();
+        mBbookList.add(new BookListItem(R.drawable.book1, "Comfort Zone", "Lindsay Tanner"));
+        mBbookList.add(new BookListItem(R.drawable.book2, "Iris and the Tiger", "Leanne Hall"));
+        mBbookList.add(new BookListItem(R.drawable.book3, "Spirits of the Ghan", "Judy Nunn"));
+        mBbookList.add(new BookListItem(R.drawable.book4, "The River House", "Janita Cunnington"));
+        mBbookList.add(new BookListItem(R.drawable.book5, "The Grass is Greener", "Loretta Hill"));
     }
 
 
@@ -60,8 +60,7 @@ public class BooksFragment extends Fragment {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.book_list_item, parent, false);
             }
-
-            BookListItem item = bookList.get(position);
+            BookListItem item = mBbookList.get(position);
             ImageView imageView = (ImageView) convertView.findViewById(R.id.poster);
             imageView.setImageResource(item.getPoster());
             TextView title = (TextView) convertView.findViewById(R.id.book_title);
@@ -70,7 +69,6 @@ public class BooksFragment extends Fragment {
             author.setText(item.getAuthor());
             return convertView;
         }
-
 
     }
 

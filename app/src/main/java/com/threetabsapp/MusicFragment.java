@@ -17,35 +17,34 @@ import java.util.List;
  * Created by Anna on 21/04/2016.
  */
 public class MusicFragment extends Fragment {
-    ImageAdapter adapter;
-    List<Integer> musicItems;
+    private ImageAdapter mAdapter;
+    private List<Integer> mMusicItems;
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView =  inflater.inflate(R.layout.music_fragment, container, false);
-        GridView gridView = (GridView)rootView.findViewById(R.id.music_items);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.music_fragment, container, false);
+        GridView gridView = (GridView) rootView.findViewById(R.id.music_items);
         setStaticData();
-        adapter = new ImageAdapter(getActivity(),musicItems);
-        gridView.setAdapter(adapter);
+        mAdapter = new ImageAdapter(getActivity(), mMusicItems);
+        gridView.setAdapter(mAdapter);
         return rootView;
     }
 
-
-    public void setStaticData(){
-        musicItems = new ArrayList<>();
-        musicItems.add(R.drawable.music1);
-        musicItems.add(R.drawable.music2);
-        musicItems.add(R.drawable.music3);
-        musicItems.add(R.drawable.music4);
-        musicItems.add(R.drawable.music5);
-        musicItems.add(R.drawable.music6);
-        musicItems.add(R.drawable.music7);
-        musicItems.add(R.drawable.music8);
+    public void setStaticData() {
+        mMusicItems = new ArrayList<>();
+        mMusicItems.add(R.drawable.music1);
+        mMusicItems.add(R.drawable.music2);
+        mMusicItems.add(R.drawable.music3);
+        mMusicItems.add(R.drawable.music4);
+        mMusicItems.add(R.drawable.music5);
+        mMusicItems.add(R.drawable.music6);
+        mMusicItems.add(R.drawable.music7);
+        mMusicItems.add(R.drawable.music8);
     }
 
     public class ImageAdapter extends ArrayAdapter {
@@ -55,12 +54,12 @@ public class MusicFragment extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent){
-            Integer image = (Integer)getItem(position);
-            if(convertView == null){
-                convertView =  LayoutInflater.from(getActivity()).inflate(R.layout.music_item, parent, false);
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Integer image = (Integer) getItem(position);
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.music_item, parent, false);
             }
-            ImageView imageView = (ImageView)convertView.findViewById(R.id.music_image);
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.music_image);
             imageView.setImageResource(image);
             return convertView;
         }

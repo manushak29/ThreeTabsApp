@@ -12,28 +12,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    ViewPagerAdapter adapter;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+    private ViewPagerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new BooksFragment(), "Books");
-        adapter.addFragment(new MusicFragment(), "Music");
-        adapter.addFragment(new PicturesFragment(), "Pictures");
-        viewPager.setAdapter(adapter);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        mAdapter.addFragment(new BooksFragment(), "Books");
+        mAdapter.addFragment(new MusicFragment(), "Music");
+        mAdapter.addFragment(new PicturesFragment(), "Pictures");
+        mViewPager.setAdapter(mAdapter);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter{
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> fragments = new ArrayList<>();
         private List<String> titles = new ArrayList<>();
 
